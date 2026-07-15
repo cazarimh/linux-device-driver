@@ -1,0 +1,11 @@
+config NOTEPAD
+    default m
+    tristate "One-time read Notepad module"
+    help
+        This module implements a character device driver that acts as a
+        temporary notepad in kernel space.
+        It allows user-space programs to write data accumulatively into
+        a secure kernel memory buffer. Once any user-space program reads
+        the device (e.g. using 'cat'), the buffer is automatically
+        cleared, implementing a "one-time read" behavior.
+        An 'ioctl' interface is also provided to manually clear the buffer.
